@@ -14,6 +14,9 @@ def make_newsletter(url_source_json, issue_id, issue_date):
     res = requests.get(url_source_json).json()
     data['entries'] = res['feed']['entry']
 
+    for e in data['entries']:
+        e['gsx$description']['$t'] = e['gsx$description']['$t'].replace('\n', '<br>')
+
     data['issue_date'] = issue_date
     data['issue_id'] = issue_id
     #data['logo_base64'] = logo_base64
