@@ -22,10 +22,20 @@ def make_newsletter(url_source_json, issue_id, issue_date):
     rendered = template.render(**data)
     open('issue/%s.html' % (issue_id), 'w').write(rendered)
 
-if __name__ == '__main__':
-    url_source_json = 'https://spreadsheets.google.com/feeds/list/1doNM4JLsUD33uFSRDeqEPd8XbnTlelm8A4SG7akOAFM/od6/public/values?alt=json'
-    issue_id = '20140718'
-    issue_date = 'July 18, 2014'
-    #logo_base64 = base64.b64encode(open('assets/img/logo-320.png').read())
+def make_all(url_list):
+    res = requests.get(url_list).json()
+    issue_list = res['feed']['entry']
+    for issue in issue_list:
+        #url_source_json = 'https://spreadsheets.google.com/feeds/list/1doNM4JLsUD33uFSRDeqEPd8XbnTlelm8A4SG7akOAFM/od6/public/values?alt=json'
+        #issue_id = '20140718'
+        #issue_date = 'July 18, 2014'
+        url_source_json = issue['gsx$url']['$t']
+        issue_id = issue['gsx$id']['$t']
+        issue_date = issue['gsx$date']['$t']
+        print 'making issue:', issue_date
+        make_newsletter(url_source_json, issue_id, issue_date)
 
-    make_newsletter(url_source_json, issue_id, issue_date)
+if __name__ == '__main__':
+    url_list = 'https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json'
+    make_all(url_list)
+
