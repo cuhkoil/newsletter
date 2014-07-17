@@ -1,3 +1,6 @@
+bower_components
+
+# Python
 venv
 
 # Byte-compiled / optimized / DLL files
