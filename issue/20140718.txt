@@ -18,6 +18,25 @@ summarized by OIL.
 
 * * * * *
 
+Virtual Machines (Rowland) & Elixir (Charles)
+7/17/2014 19:30:00 -- 7/17/2014 20:00:00
+Culture Club Gallery 15 Elgin St, Hong Kong
+  
+ One of our regular favourite presenters, Charles, will be sharing
+fundamentals of functional programming as implemented in the new
+Erlang-based language, Elixer - kind of like Erlang with Ruby syntax.  
+Regular attendee, Rowland, will be exploring the virtualisation
+landscape: its history in mainframes, rise of the hypervisor,
+application virtualisation, containers as alternatives, as well as the
+future with unikernels.  
+I must say, this will be quite a learning curve for me! Better bring my
+note   
+Organized by HK-Web-Developers
+Read more -->
+  
+
+* * * * *
+
 Crypto Party // 1st Fortnightly Casual Crypto Contigent
 7/17/2014 19:30:00 -- 7/17/2014 21:30:00
 Dim Sum Labs 14/F 100 Jervois Street, Sheung Wan, Hong Kong
@@ -30,6 +49,25 @@ No technical prerequisites but you're encouraged to bring your laptop.
 Free. Donations towards DSL encouraged.  
 https://www.cryptoparty.in/documentation/handbook   
 Organized by Mathis Antony
+Read more -->
+  
+
+* * * * *
+
+Weekly HackJam meeting
+7/22/2014 19:00:00 -- 7/22/2014 22:00:00
+Dim Sum Labs 14/F 100 Jervois Street, Sheung Wan, Hong Kong
+  
+ Everyone is welcome. People come from out of town, People from other
+Hacker/Maker/co-working spaces and people who want to create or who are
+just curious or who wish to network.  
+Designers, Programmers, Artists, Creators, Innovators, Visionaries
+Entrepreneurs, Inventors, Engineers, Funders and Starters.  
+Join us and have a chat with like minded people (and those who will
+challenge your thinking.)  
+Sometimes attendees demonstrate their creations and give short
+presentations.   
+Organized by Dim Sum Labs
 Read more -->
   
 
@@ -96,6 +134,23 @@ Read more -->
 
 * * * * *
 
+7/27/2014 16:15:00 -- 7/27/2014 17:30:00
+Delaney's Kowloon, Basement, Mary Building, 71 - 77 Peking Road, Tsim
+Sha Tsui, Hong Kong
+  
+ Event details, discussion and suggestion:  
+* a chance to introduce yourself and business  
+* what do you think has been a key innovation in APPs you ever used  
+* what's your favourite App of the Moment  
+* collect survey advices  
+* if you would like to develop an APP project, what industry will you be
+interest in?   
+Organized by AppInnovators
+Read more -->
+  
+
+* * * * *
+
 Open Source Workshop 2014.08
 8/2/2014 14:00:00 -- 8/2/2014 17:30:00
 City University of Hong Kong
@@ -117,6 +172,7 @@ Read more -->
 open culture and technology entrepreneurship within engineering
 students. Follow us on Facebook for more announcements and join the
 Facebook Group to meet other open minds.   
+ Sign-up our newsletter to get future issues.   
   
  Innovation with the open spirit   
  [source]   
