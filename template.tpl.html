@@ -103,6 +103,7 @@
             </td>
         </tr>
         {% for entry in entries %}
+        {% if entry['gsx$appear']['$t'] == 'Y' %}
         <tr>
             <td style="font-weight: bold; font-size: 18px; line-height: 24px; color: #AC5293">
             {{entry['gsx$title']['$t']}}
@@ -145,6 +146,7 @@
                 <hr>
             </td>
         </tr>
+        {% endif %}
         {% endfor %}
       </table>
 
