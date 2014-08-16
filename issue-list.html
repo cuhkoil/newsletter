@@ -16,7 +16,10 @@
     </style>
     
     <!-- add markup here -->
-<feed-service id="service" feeds="{{feeds}}" url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json">
+<feed-service id="service"
+              feeds="{{feeds}}"
+              orderby="{{order_by_id}}"
+              url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json">
 </feed-service>
 <div layout vertical center>
   <template repeat="{{feed in feeds}}">
@@ -33,7 +36,22 @@
   </template>
 
   <script>
-  Polymer({});
+  Polymer('issue-list', {
+    order_by_id: function(feed1, feed2){
+        // The IDs of issues are in the format: yyyymmdd
+        // We sort in descending order of ID, so that latest issues appear first
+        // Refer:
+        // http://stackoverflow.com/questions/2466356/javascript-object-list-sorting-by-object-property
+        console.log('order_by_id');
+        if (feed1.gsx$id.$t == feed2.gsx$id.$t){
+            return 0;
+        } else if (feed1.gsx$id.$t > feed2.gsx$id.$t){
+            return -1;
+        } else {
+            return 1;
+        }
+    }
+  });
   </script>
 
 </polymer-element>
