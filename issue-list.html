@@ -4,54 +4,50 @@
 <link rel="import" href="event-list.html">
 
 <polymer-element name="issue-list" attributes="show">
-  <template>
-    <style>
-    :host {
-      display: block;
-      width: 100%;
-    }
-    post-card {
-      margin-bottom: 30px;
-    }
-    </style>
-    
-    <!-- add markup here -->
-<feed-service id="service"
-              feeds="{{feeds}}"
-              orderby="{{order_by_id}}"
-              url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json">
-</feed-service>
-<div layout vertical center>
-  <template repeat="{{feed in feeds}}">
-      <div>
-      <!--<img src="{{post.avatar}}" width="70" height="70">-->
-        <h2>{{feed.gsx$date.$t}}</h2>
-        <event-list url="{{feed.gsx$url.$t}}">
-        </event-list>
-        <hr>
-      </div>
-  </template>
-</div>
-    
-  </template>
+    <template>
+        <style>
+            :host {
+            }
+            .issue-list h2{
+                text-align: center;
+            }
+        </style>
 
-  <script>
-  Polymer('issue-list', {
-    order_by_id: function(feed1, feed2){
-        // The IDs of issues are in the format: yyyymmdd
-        // We sort in descending order of ID, so that latest issues appear first
-        // Refer:
-        // http://stackoverflow.com/questions/2466356/javascript-object-list-sorting-by-object-property
-        console.log('order_by_id');
-        if (feed1.gsx$id.$t == feed2.gsx$id.$t){
-            return 0;
-        } else if (feed1.gsx$id.$t > feed2.gsx$id.$t){
-            return -1;
-        } else {
-            return 1;
-        }
-    }
-  });
-  </script>
+        <!-- add markup here -->
+        <feed-service id="service"
+                      feeds="{{feeds}}"
+                      orderby="{{order_by_id}}"
+                      url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json">
+        </feed-service>
+        <div class="issue-list">
+            <template repeat="{{feed in feeds}}">
+                <h2>~Issue {{feed.gsx$date.$t}}~</h2>
+                    <event-list url="{{feed.gsx$url.$t}}">
+                    </event-list>
+                <hr>
+            </template>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer('issue-list', {
+            order_by_id: function(feed1, feed2){
+                // The IDs of issues are in the format: yyyymmdd
+                // We sort in descending order of ID, so that latest issues appear first
+                // Refer:
+                // http://stackoverflow.com/questions/2466356/javascript-object-list-sorting-by-object-property
+                console.log('order_by_id');
+                if (feed1.gsx$id.$t == feed2.gsx$id.$t){
+                    return 0;
+                } else if (feed1.gsx$id.$t > feed2.gsx$id.$t){
+                    return -1;
+                } else {
+                    return 1;
+                }
+            },
+            applyAuthorStyles: true
+        });
+    </script>
 
 </polymer-element>

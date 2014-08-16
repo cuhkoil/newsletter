@@ -3,49 +3,59 @@
 <link rel="import" href="bower_components/polymer-ui-icon-button/polymer-ui-icon-button.html">
 
 <polymer-element name="event-card">
-  <template>
-    <style>
-    :host {
-      display: block;
-      position: relative;
-      background-color: white;
-      padding: 20px;
-      width: 100%;
-      font-size: 1.2rem;
-      font-weight: 300;
-    }
-    .card-header {
-      margin-bottom: 10px;
-    }
+    <template>
 
-polyfill-next-selector { content: '.card-header h2'; }
-.card-header ::content h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 300;
-}
-polyfill-next-selector { content: '.card-header img'; }
-.card-header ::content img {
-  width: 70px;
-  border-radius: 50%;
-  margin: 10px;
-}
-    
-    </style>
+        <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 
-    <!-- CARD CONTENTS GO HERE -->
+        <style>
+            :host {
+            }
 
-<div class="card-header" layout horizontal center>
-  <content select="h2"></content>
-</div>
-<div class="card-body">
-    <!--body-->
-<content></content>
-</div>
-    
-  </template>
+            .card{
+                width:330px;
+                margin:5px;
+                padding:5px;
+                background-color: #f5f5f5;
+                border-radius: 10px;
+            }
+            .card-header {
+                margin-bottom: 10px;
+            }
 
-  <script>
-  Polymer({});
-  </script>
+            polyfill-next-selector { content: '.card-header h2'; }
+            .card-header ::content h2 {
+            }
+
+            polyfill-next-selector { content: '.card-header h3'; }
+            .card-header ::content h3 {
+                font-size: 0.8em;
+                margin: 0px;
+                padding: 0px;
+            }
+
+        </style>
+
+        <!-- CARD CONTENTS GO HERE -->
+
+        <div class="card">
+            <div class="card-header">
+                <content select="h2"></content>
+            </div>
+            <div class="card-header">
+                <content select="h3"></content>
+            </div>
+            <div class="card-body">
+                <!--body-->
+                <content select="p"></content>
+                <content select="a"></content>
+            </div>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer('event-card', {
+            applyAuthorStyles: true
+        });
+    </script>
 </polymer-element>
