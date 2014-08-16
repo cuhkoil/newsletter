@@ -1,9 +1,9 @@
 ﻿<link rel="import" href="bower_components/polymer/polymer.html">
 <!--link rel="import" href="bower_components/post-service/post-service.html"-->
 <link rel="import" href="feed-service.html">
-<link rel="import" href="event-list.html">
+<link rel="import" href="post-card.html">
 
-<polymer-element name="issue-list" attributes="show">
+<polymer-element name="event-list" attributes="show url">
   <template>
     <style>
     :host {
@@ -16,18 +16,14 @@
     </style>
     
     <!-- add markup here -->
-<feed-service id="service" feeds="{{feeds}}" url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json">
+<feed-service id="service" feeds="{{feeds}}" url="{{url}}">
 </feed-service>
 <div layout vertical center>
   <template repeat="{{feed in feeds}}">
-      <div>
+    <post-card>
       <!--<img src="{{post.avatar}}" width="70" height="70">-->
-        <h2>{{feed.gsx$date.$t}}</h2>
-        <p>This is an issue</p>
-        <event-list url="{{feed.gsx$url.$t}}">
-        </event-list>
-        <hr>
-      </div>
+      <h2>event</h2>
+    </post-card>
   </template>
 </div>
     
