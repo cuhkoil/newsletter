@@ -53,7 +53,7 @@
   @type Array
   @default []
 -->
-<polymer-element name="post-service" attributes="posts">
+<polymer-element name="post-service" attributes="posts url">
   <template>
     <style>
     :host {
@@ -65,7 +65,7 @@
       <!--url="https://spreadsheets.google.com/feeds/list/0AhcraNy3sgspdDhuQ2pvN21JVW9NeVA0M1h4eGo3RGc/od6/public/values?alt=json"-->
     <polymer-ajax id="ajax"
       auto
-      url="https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json"
+      url="{{url}}"
       on-polymer-response="{{postsLoaded}}"
       handleAs="json">
     </polymer-ajax>
