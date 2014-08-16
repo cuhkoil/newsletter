@@ -1,7 +1,7 @@
 ﻿<link rel="import" href="bower_components/polymer/polymer.html">
 <!--link rel="import" href="bower_components/post-service/post-service.html"-->
 <link rel="import" href="feed-service.html">
-<link rel="import" href="post-card.html">
+<link rel="import" href="event-card.html">
 
 <polymer-element name="event-list" attributes="show url">
   <template>
@@ -20,10 +20,15 @@
 </feed-service>
 <div layout vertical center>
   <template repeat="{{feed in feeds}}">
-    <post-card>
+    <event-card>
       <!--<img src="{{post.avatar}}" width="70" height="70">-->
-      <h2>event</h2>
-    </post-card>
+      <h2>{{feed.gsx$title.$t}}</h2>
+        <h3>{{feed.gsx$timestart.$t}} - {{feed.gsx$timeend.$t}}</h3>
+        <h3>{{feed.gsx$venue.$t}}</h3>
+        <h3>organized by {{feed.gsx$organizer.$t}}</h3>
+        <p>{{feed.gsx$description.$t}}</p>
+        <a href="{{feed.gsx$link.$t}}">Read more --></a>
+    </event-card>
   </template>
 </div>
     
