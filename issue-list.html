@@ -1,4 +1,4 @@
-<link rel="import" href="bower_components/polymer/polymer.html">
+﻿<link rel="import" href="bower_components/polymer/polymer.html">
 <!--link rel="import" href="bower_components/post-service/post-service.html"-->
 <link rel="import" href="feed-service.html">
 <link rel="import" href="event-list.html">
@@ -18,6 +18,26 @@
             .issue-list h2 small a{
                 color: gray;
             }
+            .issue-list div.issue.published{
+                -webkit-box-shadow: 7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+                -moz-box-shadow:    7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+                box-shadow:         7px 7px 5px 0px rgba(50, 50, 50, 0.75);
+                border-top: 2px solid;
+                border-left: 2px solid;
+                border-top-left-radius: 10px;
+            }
+            .issue-list div.issue.preparing{
+                -webkit-box-shadow: 7px 7px 5px 0px rgba(235, 155, 255, 0.75);
+                -moz-box-shadow:    7px 7px 5px 0px rgba(235, 155, 255, 0.75);
+                box-shadow:         7px 7px 5px 0px rgba(235, 155, 255, 0.75);
+                border-top: 2px solid rgba(235, 155, 255, 0.75);
+                border-left: 2px solid rgba(235, 155, 255, 0.75);
+                border-top-left-radius: 10px;
+                background-image: url('assets/img/background-preparing.png');
+                background-size: 100px;
+                background-repeat: no-repeat;
+            }
+
         </style>
 
         <!-- add markup here -->
@@ -28,16 +48,17 @@
         </feed-service>
         <div class="issue-list">
             <template repeat="{{feed in feeds}}">
-                <h2>~Issue {{feed.gsx$date.$t}}~
-                    <br>
-                    <small>Links:
-                        <a href="issue/{{feed.gsx$id.$t}}.html">[HTML]</a>
-                        <a href="{{feed.gsx$editurl.$t}}.html">[GDoc]</a>
-                    </small>
-                </h2>
+                <div class="issue {{feed.gsx$status.$t}}">
+                    <h2>~Issue {{feed.gsx$date.$t}}~
+                        <br>
+                        <small>Links:
+                            <a href="issue/{{feed.gsx$id.$t}}.html">[HTML]</a>
+                            <a href="{{feed.gsx$editurl.$t}}">[GDoc]</a>
+                        </small>
+                    </h2>
                     <event-list url="{{feed.gsx$url.$t}}">
                     </event-list>
-                <hr>
+                </div>
             </template>
         </div>
 
