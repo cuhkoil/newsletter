@@ -53,7 +53,7 @@
   @type Array
   @default []
 -->
-<polymer-element name="feed-service" attributes="feeds url orderby">
+<polymer-element name="feed-service" attributes="feeds url orderby callback">
   <template>
     <style>
     :host {
@@ -67,6 +67,7 @@
       auto
       url="{{url}}"
       on-polymer-response="{{postsLoaded}}"
+      callback="{{callback}}"
       handleAs="json">
     </polymer-ajax>
   </template>
@@ -79,14 +80,17 @@
     postsLoaded: function() {
       // Make a copy of the loaded data
       //this.posts = this.$.ajax.response.slice(0);
-      console.log(this.$.ajax.response);
+//      console.log(this.$.ajax.response);
       var feeds = this.$.ajax.response.feed.entry.slice(0);
       if (this.orderby){
-        console.log('get orderby');
-        console.log(this.orderby);
+//        console.log('get orderby');
+//        console.log(this.orderby);
         feeds.sort(this.orderby);
       }
       this.feeds = feeds;
+      if (this.callback){
+        this.callback(feeds);
+      }
     }
   });
   </script>
