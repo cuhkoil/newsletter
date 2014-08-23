@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+'''
+Usage:
+    render <issue_id>
+
+Parameters:
+    <issue_id> can be 'ALL' to render all issues
+
+Options:
+    -h     Show this message
+'''
 
 import sys
 #import base64
@@ -40,6 +50,14 @@ def make_issues(url_list, predicate):
             make_newsletter(url_source_json, issue_id, issue_date)
 
 if __name__ == '__main__':
+    from docopt import docopt
+    arguments = docopt(__doc__)
+
     url_list = 'https://spreadsheets.google.com/feeds/list/1RXKzcnJhsm88-T-3DikGpRsOa1NJ8AVhMSHzPYaf8CI/od6/public/values?alt=json'
-    make_issues(url_list, lambda x: True)
+
+    if arguments['<issue_id>'] == 'ALL':
+        make_issues(url_list, lambda x: True)
+    else:
+        make_issues(url_list, lambda x: x['gsx$id']['$t'] == arguments['<issue_id>'])
+
 
