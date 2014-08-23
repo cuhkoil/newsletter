@@ -11,6 +11,13 @@
             .issue-list h2{
                 text-align: center;
             }
+            .issue-list h2 small{
+                color: gray;
+                font-size: 0.7em;
+            }
+            .issue-list h2 small a{
+                color: gray;
+            }
         </style>
 
         <!-- add markup here -->
@@ -21,7 +28,12 @@
         </feed-service>
         <div class="issue-list">
             <template repeat="{{feed in feeds}}">
-                <h2>~Issue {{feed.gsx$date.$t}}~</h2>
+                <h2>~Issue {{feed.gsx$date.$t}}~
+                    <br>
+                    <small>Links:
+                        <a href="issue/{{feed.gsx$id.$t}}.html">HTML</a>
+                    </small>
+                </h2>
                     <event-list url="{{feed.gsx$url.$t}}">
                     </event-list>
                 <hr>
